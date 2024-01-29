@@ -1,5 +1,7 @@
-import subprocess 
- 
-def run():
+import subprocess
 
-print("Hola Mundo")
+def run():
+    print("Hola Mundo")
+
+# Llamamos a la función run()
+run()
