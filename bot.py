@@ -19,7 +19,7 @@ def run():
     subprocess.run(['git', 'commit', '-m', mensaje_commit])
     subprocess.run(['git', 'push', 'origin', 'main'])
 
-    print(f'Archivo {archivo} publicado en GitHub en el repositorio {repo_nombre}/{archivo_en_repo}')
+    print(f'Archivo {archivo} publicado en GitHub en este repositorio {repo_nombre}/{archivo_en_repo}')
 
 run()
 
